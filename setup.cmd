@@ -1,15 +1,17 @@
 @echo off
 SET "current_dir=%~dp0"
 
-echo SET "script_dir=%current_dir%" > "%current_dir%run_playlist.cmd"
-echo @echo off >> "%current_dir%run_playlist.cmd"
+REM Write commands to run_playlist.cmd
+echo @echo off > "%current_dir%run_playlist.cmd"
+echo SET "script_dir=%current_dir:~0,-1%" >> "%current_dir%run_playlist.cmd"
+echo REM Navigate to the script directory >> "%current_dir%run_playlist.cmd"
+echo cd /d "%%script_dir%%" >> "%current_dir%run_playlist.cmd"
 echo REM Activate the virtual environment >> "%current_dir%run_playlist.cmd"
-echo CALL "%script_dir%venv\Scripts\activate.bat" >> "%current_dir%run_playlist.cmd"
+echo CALL "%%script_dir%%\venv\Scripts\activate.bat" >> "%current_dir%run_playlist.cmd"
 echo REM Run the Python playlist downloader script >> "%current_dir%run_playlist.cmd"
-echo python "%script_dir%playlist_downloader.py" >> "%current_dir%run_playlist.cmd"
+echo python "%%script_dir%%\playlist_downloader.py" >> "%current_dir%run_playlist.cmd"
 echo REM Optional pause for troubleshooting >> "%current_dir%run_playlist.cmd"
 echo PAUSE >> "%current_dir%run_playlist.cmd"
-
 REM Step 3: Define the path to the Windows Startup folder
 SET "startup_folder=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 
@@ -37,3 +39,4 @@ ECHO Installing dependencies...
 pip install pytubefix
 pip install imageio[ffmpeg]
 
+ECHO Setup is complete!
