@@ -1,12 +1,12 @@
 
 YouTube Playlist Downloader Setup
 
-1.Clone the Repository
+Clone the Repository
   In the directory where you want the downloader to be located, run:
 
     git clone https://github.com/kuskryptus/YT-playlist_downloader.git
 
-2. Run the Setup Script
+Run the Setup Script
 
   Open the YT-playlist_downloader folder.
   Double-click setup.bat to start the setup.
