@@ -31,4 +31,3 @@ pip install pytubefix
 pip install imageio[ffmpeg]
 
 ECHO Setup is complete!
-PAUSE

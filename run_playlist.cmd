@@ -13,4 +13,3 @@ REM Step 4: Run the playlist_downloader.py script
 python playlist_downloader.py
 
 REM Step 5: Pause the script to keep the window open (optional)
-PAUSE
